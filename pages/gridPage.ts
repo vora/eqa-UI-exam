@@ -9,6 +9,26 @@ export class GridPage {
     return $('[ref="eRootWrapper"] .ag-side-bar');
   }
 
+  public static get sideBarSearch() {
+    return $('//input[@placeholder="Search..."]');
+  }
+
+  public static get nameFilterSearch() {
+    return $('//input[@aria-label="Name Filter Input"]');
+  }
+
+  public static get octFilterSearch() {
+    return $('//input[@placeholder="Filter..."]');
+  }
+
+  public static get octFilterSearchButton() {
+    return $('//input[@aria-label="Oct Filter Input"]/ancestor::div[@role="gridcell"]//button');
+  }
+
+  public static get displayFieldPicker() {
+    return $('//div[@ref="eDisplayField"]');
+  }
+
   public static get gridContainer() {
     return $(
       '[ref="eRootWrapper"] > .ag-root-wrapper-body [ref="eCenterContainer"]'
@@ -25,5 +45,17 @@ export class GridPage {
 
   public static get columnHeader() {
     return $$('[aria-rowindex="1"] > [role="columnheader"]');
+  }
+
+  public static get nameFilterSearchResults() {
+    return $$('//div[@col-id="name"][@role="gridcell"]//span[@ref="eCellValue"]');
+  }
+
+  public static get octFilterSearchResults() {
+    return $$('//div[@col-id="oct"][@role="gridcell"]');
+  }
+
+  public static get columnSecondaryHeader() {
+    return $$('//*[@ref="eLabel"]/span/..');
   }
 }
