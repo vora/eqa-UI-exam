@@ -92,18 +92,20 @@ describe("Load AG Grid", () => {
 
 
   /*return first row values*/
-  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
-
+  const gilText=GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  expect(gilText).to.equal(true); 
+ 
   /*enter name for Tony*/
   
   GridPage.inputNameField.clearValue();
   GridPage.inputNameField.setValue("tony");
-  browser.pause(3000);
+  browser.pause(5000);
 
   
 
   /*return first row values*/
-  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  const tonyText=GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  expect(tonyText).to.equal(true); 
 
   /*Enter name for Isabella*/
   
@@ -114,7 +116,8 @@ describe("Load AG Grid", () => {
   
 
   /*return first row values*/
-  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  const IsabellaText= GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  expect(IsabellaText).to.equal(true); 
 
   /*Enter name for Poppy*/
   
@@ -125,7 +128,8 @@ describe("Load AG Grid", () => {
   
 
   /*return first row values*/
-  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  const poppyText=GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+  expect(poppyText).to.equal(true);
 
  });
 

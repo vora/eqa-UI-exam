@@ -68,8 +68,15 @@ export class GridPage {
 
 
 public static get returnRowsAfterSearchingInputValues(){
-    return $("(//div[@class='ag-row ag-row-no-focus ag-row-level-0 ag-row-position-absolute ag-row-even ag-row-first'])[2]")
+    //return $("(//div[@class='ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first'])[2]")
+    return $("(//*[@class='ag-center-cols-container']/div[@role='row'])[1]")
 }
+//ag-row ag-row-no-focus ag-row-odd ag-row-level-0 ag-row-position-absolute
+//ag-row ag-row-no-focus ag-row-even ag-row-level-0 ag-row-position-absolute ag-row-first
+/*public static get returnodd_tony_Isabella_RowsAfterSearchingInputValues(){
+  return $("(//*[@class='ag-row ag-row-no-focus ag-row-level-0 ag-row-position-absolute ag-row-odd'])[2]")
+}*/
+
 
 public static get clickOnOctFilter(){
   return $("//*[@class='ag-floating-filter-button-button']/../../../div[8]/div[@class='ag-floating-filter-button']")
