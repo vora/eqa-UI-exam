@@ -44,11 +44,28 @@ export class GridPage {
   }
 
 
-  public static get Primary_sidebarOptions(){
+  public static get Primary_sidebarOptions_Participant(){
     return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Participant']");
   
   }
 
+  public static get Primary_sidebarOptions_gameOfChoice(){
+    return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Game of Choice']");
+  
+  }
+
+  public static get Primary_sidebarOptions_Performance(){
+    return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Performance']");
+  
+  }
+
+  public static get Primary_sidebarOptions_MonthlyBreakdown(){
+    return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Monthly Breakdown']");
+  
+  }
+
+
+//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Performance']
   public static get secondaryCH_Name(){
     return $("//div[@class='ag-cell-label-container ag-header-cell-sorted-none']/span/following-sibling::div/span[text()='Name']");
   }

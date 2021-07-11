@@ -59,19 +59,87 @@ describe("Load AG Grid", () => {
 
  });
 
- it.skip("sidebar options should have same text as primary column headers", () => {
+ it("Validate that the Primary Column Headers are available in the Columns Sidebar options", () => {
   GridPage.mainGrid.waitForDisplayed();
+/*Used localeCompare to verify column headeres are in sidebar options
+  /*Secondary Column - Name */
+  var primaryColHeaderString_participant=GridPage.columnheaderTextParticipant.getText();
+  console.log(primaryColHeaderString_participant);
 
-  var primaryColHeaderString=GridPage.columnheaderTextParticipant.getText();
-  console.log(primaryColHeaderString);
+  GridPage.Primary_sidebarOptions_Participant.scrollIntoView();
+  var sideHeaderString_participant=GridPage.Primary_sidebarOptions_Participant.getText();
+  console.log(sideHeaderString_participant);
+  console.log("Strings comparision from Column header to Sidebaroptions-Participant");
+  console.log(primaryColHeaderString_participant.localeCompare(sideHeaderString_participant));
+  var result=primaryColHeaderString_participant.localeCompare(sideHeaderString_participant);
 
-  GridPage.Primary_sidebarOptions.scrollIntoView();
-  var sideHeaderString=GridPage.Primary_sidebarOptions.getText();
-  console.log(sideHeaderString);
-  console.log("Strings comparision");
-  console.log(primaryColHeaderString.localeCompare(sideHeaderString));
+  if(result<0){
+    console.log("strings are not equal");
+  }
+  else if(result>0){
+    console.log("strings are not equal");
+  }
+  else{
+    console.log("Primary Column Headers are available in the Columns Sidebar options");
+  }
+    
+  /*Secondary Column - Language */
 
+  var primaryColHeaderString_GameOfChoice=GridPage.columnheaderTextGameOfChoice.getText();
+  console.log(primaryColHeaderString_GameOfChoice);
 
+  GridPage.Primary_sidebarOptions_gameOfChoice.scrollIntoView();
+  var sideHeaderString_gameOfChoice=GridPage.Primary_sidebarOptions_gameOfChoice.getText();
+  console.log(sideHeaderString_gameOfChoice);
+  console.log("Strings comparision from Column header to Sidebaroptions-gameOfChoice");
+ var result= primaryColHeaderString_GameOfChoice.localeCompare(sideHeaderString_gameOfChoice);
+ if(result<0){
+  console.log("strings are not equal");
+}
+else if(result>0){
+  console.log("strings are not equal");
+}
+else{
+  console.log("Primary Column Headers are available in the Columns Sidebar options");
+}
+
+  /*Secondary Column - Performance  */
+  var primaryColHeaderString_performance=GridPage.columnheaderTextPerformance.getText();
+  console.log(primaryColHeaderString_performance);
+
+  GridPage.Primary_sidebarOptions_Performance.scrollIntoView();
+  var sideHeaderString_performance=GridPage.Primary_sidebarOptions_Performance.getText();
+  console.log(sideHeaderString_performance);
+  console.log("Strings comparision from Column header to Sidebaroptions-Performance");
+  var result=primaryColHeaderString_performance.localeCompare(sideHeaderString_performance);
+  if(result<0){
+    console.log("strings are not equal");
+  }
+  else if(result>0){
+    console.log("strings are not equal");
+  }
+  else{
+    console.log("Primary Column Headers are available in the Columns Sidebar options");
+  }
+
+/*Secondary Column - Monthly Breakdown  */
+  var primaryColHeaderString_breakdown=GridPage.columnheaderTextMonthlyBreakdown.getText();
+  console.log(primaryColHeaderString_breakdown);
+
+  GridPage.Primary_sidebarOptions_MonthlyBreakdown.scrollIntoView();
+  var sideHeaderString_monthlyBreakdown=GridPage.Primary_sidebarOptions_MonthlyBreakdown.getText();
+  console.log(sideHeaderString_monthlyBreakdown);
+  console.log("Strings comparision from Column header to Sidebaroptions-monthlyBreakdown");
+  var result=sideHeaderString_monthlyBreakdown.localeCompare(primaryColHeaderString_breakdown);
+  if(result<0){
+    console.log("strings are not equal");
+  }
+  else if(result>0){
+    console.log("strings are not equal");
+  }
+  else{
+    console.log("Primary Column Headers are available in the Columns Sidebar options");
+  }
  });
 
  it.skip("Grab Secondary column headers should have same text as sidebar options", () => {
