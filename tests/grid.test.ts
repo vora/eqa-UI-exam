@@ -5,18 +5,209 @@ import { Page } from "../pages/page";
 describe("Load AG Grid", () => {
   before(() => {
     Page.open();
+    
   });
 
-  it("Should display the grids", () => {
+  it.skip("Should display the grids", () => {
     GridPage.mainGrid.waitForDisplayed();
 
     /**
      * I'm using forEach here for readability purposes
      * The function iterates through the element array
-     * and checks if element is displayed.
-     */
+     * and checks if element is displayed.*/
+     
     GridPage.columnHeader.forEach((el) => {
+      browser.pause(5000);
       expect(el.isDisplayed()).to.eql(true);
     });
+    
   });
+
+
+    it.skip("Validate primary Columns headers should have following texts", () => {
+      GridPage.mainGrid.waitForDisplayed();
+  
+     
+      console.log(GridPage.columnheaderTextParticipant.getText());
+     console.log(GridPage.columnheaderTextParticipant.isDisplayed());
+      
+      console.log(GridPage.columnheaderTextGameOfChoice.getText());
+      console.log(GridPage.columnheaderTextGameOfChoice.isDisplayed());
+
+      console.log(GridPage.columnheaderTextPerformance.getText());
+      console.log(GridPage.columnheaderTextPerformance.isDisplayed());
+      GridPage.columnheaderTextMonthlyBreakdown.scrollIntoView();
+      
+     // GridPage.moveToElement(GridPage.columnheaderTextMonthlyBreakdown);
+
+      console.log(GridPage.columnheaderTextMonthlyBreakdown.getText());
+      console.log(GridPage.columnheaderTextMonthlyBreakdown.isDisplayed());
+
+      
+
+ });
+
+ it.skip("sidebar options should have same text as primary column headers", () => {
+  GridPage.mainGrid.waitForDisplayed();
+
+  var primaryColHeaderString=GridPage.columnheaderTextParticipant.getText();
+  console.log(primaryColHeaderString);
+
+  GridPage.Primary_sidebarOptions.scrollIntoView();
+  var sideHeaderString=GridPage.Primary_sidebarOptions.getText();
+  console.log(sideHeaderString);
+  console.log("Strings comparision");
+  console.log(primaryColHeaderString.localeCompare(sideHeaderString));
+
+
+ });
+
+ it.skip("Grab Secondary column headers should have same text as sidebar options", () => {
+  GridPage.mainGrid.waitForDisplayed();
+
+  var secondaryColHeaderString=GridPage.secondaryCH_Name.getText();
+  console.log(secondaryColHeaderString);
+
+  GridPage.secondary_sidebarOptions.scrollIntoView();
+  var sec_sideOptionsString=GridPage.secondary_sidebarOptions.getText();
+  console.log(sec_sideOptionsString);
+  console.log("Strings comparision");
+  console.log(secondaryColHeaderString.localeCompare(sec_sideOptionsString));
+
+
+ });
+
+ it("Input text such as gil,tony,isabella and verify return result is displayed", () => {
+  GridPage.mainGrid.waitForDisplayed();
+
+  
+  GridPage.inputNameField.click();
+  browser.pause(3000);
+
+  /*enter name for Gil*/
+
+  GridPage.inputNameField.setValue("gil");
+  browser.pause(3000);
+
+
+
+  /*return first row values*/
+  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+
+  /*enter name for Tony*/
+  
+  GridPage.inputNameField.clearValue();
+  GridPage.inputNameField.setValue("tony");
+  browser.pause(3000);
+
+  
+
+  /*return first row values*/
+  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+
+  /*Enter name for Isabella*/
+  
+  GridPage.inputNameField.clearValue();
+  GridPage.inputNameField.setValue("Isabella");
+  browser.pause(3000);
+
+  
+
+  /*return first row values*/
+  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+
+  /*Enter name for Poppy*/
+  
+  GridPage.inputNameField.clearValue();
+  GridPage.inputNameField.setValue("Poppy");
+  browser.pause(3000);
+
+  
+
+  /*return first row values*/
+  GridPage.returnRowsAfterSearchingInputValues.isDisplayed();
+
+ });
+
+ /*click on filter of October*/ 
+ it.skip("Click on oct filter and enter value less than 5000", () => {
+  GridPage.mainGrid.waitForDisplayed();
+  //GridPage.clickOnOctFilter.scrollIntoView();
+
+  //GridPage.clickOnOctFilter.click();
+  const eleFilter=$("//*[@class='ag-floating-filter-button-button']/../../../div[8]/div[@class='ag-floating-filter-button']");
+  const eleOct=$("(//*[@class='ag-cell-label-container ag-header-cell-sorted-none'])[7]");
+  eleFilter.scrollIntoView();
+  browser.pause(3000);
+  eleFilter.click();
+  browser.pause(5000);
+ /*select dropdown lessthan*/ 
+
+ 
+
+  //const eleEquals=$("//*[@aria-describedby='1367-display']/div[text()='Equals']");
+  const eleEquals=$("(//*[@class='ag-filter-wrapper ag-focus-managed']/div/div/div/div[text()='Equals'])[1]");
+  eleEquals.scrollIntoView();
+
+  eleEquals.click();
+  browser.pause(3000);
+  browser.keys('Down arrow');
+  browser.pause(2000);
+  browser.keys('Down arrow');
+  browser.pause(3000);
+  browser.keys('Enter');
+  browser.pause(3000);
+
+ /*input for value 5000*/ 
+  const filterInput=$("(//div[@class='ag-filter-body']/div/div/input[@type='number'])[1]");
+  filterInput.scrollIntoView();
+  browser.pause(3000);
+  filterInput.click();
+  browser.pause(3000);
+  filterInput.setValue(5000);
+  browser.pause(3000);
+  filterInput.click();
+  //eleEquals.selectByIndex(3);
+  //GridPage.selectLessThanDropdown.click();
+  //browser.pause(3000);
+  //GridPage.selectLessThanDropdown.selectByVisibleText("Less than");
+
+ /*validate result less than 5000*/
+
+ const row1_result=$("(//div[@row-index=1])[1]/div[@col-id='oct']");
+ row1_result.scrollIntoView();
+ 
+ var rowresult1=row1_result.getText();
+ console.log(rowresult1);
+
+ const row2_result=$("(//div[@row-index=1])[2]/div[@col-id='oct']");
+ 
+ row2_result.scrollIntoView();
+ var rowresult2=row2_result.getText();
+ console.log(rowresult2);
+
+ const row3_result=$("(//div[@row-index=1])[3]/div[@col-id='oct']");
+ row3_result.scrollIntoView();
+ var rowresult3=row3_result.getText();
+ console.log(rowresult3);
+
+ const row4_result=$("(//div[@row-index=1])[4]/div[@col-id='oct']");
+ row4_result.scrollIntoView();
+ var rowresult4=row4_result.getText();
+ console.log(rowresult4);
+
+ let value = 5000;
+ //let number = 1;
+ if (parseInt(rowresult1) < value){
+  	console.log("Return result value is lesser then 5000");
+ }
+
+
+ });
+
+
+  
+
 });
+
+
