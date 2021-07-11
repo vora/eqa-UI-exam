@@ -24,24 +24,36 @@ describe("Load AG Grid", () => {
   });
 
 
-    it.skip("Validate primary Columns headers should have following texts", () => {
+    it.skip("Validate primary Columns headers should have following texts-Test1", () => {
       GridPage.mainGrid.waitForDisplayed();
-  
-     
-      console.log(GridPage.columnheaderTextParticipant.getText());
-     console.log(GridPage.columnheaderTextParticipant.isDisplayed());
+      console.log(GridPage.columnheaderTextParticipant.isDisplayed());
       
-      console.log(GridPage.columnheaderTextGameOfChoice.getText());
+      const participantText=GridPage.columnheaderTextParticipant.getText();
+      expect(participantText).equal('Participant');
+
+    
       console.log(GridPage.columnheaderTextGameOfChoice.isDisplayed());
-
-      console.log(GridPage.columnheaderTextPerformance.getText());
-      console.log(GridPage.columnheaderTextPerformance.isDisplayed());
-      GridPage.columnheaderTextMonthlyBreakdown.scrollIntoView();
       
-     // GridPage.moveToElement(GridPage.columnheaderTextMonthlyBreakdown);
+      const gameOfChoiceText=GridPage.columnheaderTextGameOfChoice.getText();
+      expect(gameOfChoiceText).equal('Game of Choice');
+      
 
-      console.log(GridPage.columnheaderTextMonthlyBreakdown.getText());
+      console.log(GridPage.columnheaderTextPerformance.isDisplayed());
+      
+      const performanceText=GridPage.columnheaderTextPerformance.getText();
+      expect(performanceText).equal('Performance');
+
+
+      GridPage.columnheaderTextMonthlyBreakdown.scrollIntoView();
       console.log(GridPage.columnheaderTextMonthlyBreakdown.isDisplayed());
+      
+      const MonthlyBreakdownText=GridPage.columnheaderTextMonthlyBreakdown.getText();
+      expect(MonthlyBreakdownText).equal('Monthly Breakdown');
+      
+     // console.log(GridPage.columnheaderTextGameOfChoice.getText());
+      //console.log(GridPage.columnheaderTextGameOfChoice.isDisplayed());
+
+     
 
       
 
@@ -77,7 +89,7 @@ describe("Load AG Grid", () => {
 
  });
 
- it("Input text such as gil,tony,isabella and verify return result is displayed", () => {
+ it.skip("Input text such as gil,tony,isabella and verify return result is displayed-Test4", () => {
   GridPage.mainGrid.waitForDisplayed();
 
   
