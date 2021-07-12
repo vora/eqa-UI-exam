@@ -65,18 +65,37 @@ export class GridPage {
   }
 
 
-//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Performance']
+
   public static get secondaryCH_Name(){
     return $("//div[@class='ag-cell-label-container ag-header-cell-sorted-none']/span/following-sibling::div/span[text()='Name']");
   }
   
+  public static get secondaryCH_Lang(){
+    return $("//div[@class='ag-cell-label-container ag-header-cell-sorted-none']/span/following-sibling::div/span[text()='Language']");
+  }
+
+  public static get secondaryCH_Country(){
+    return $("//div[@class='ag-cell-label-container ag-header-cell-sorted-none']/span/following-sibling::div/span[text()='Country']");
+  }
 
 
-  public static get secondary_sidebarOptions(){
+  public static get secondary_sidebarOptions_name(){
     return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Name']");
   
   }
 
+  public static get secondary_sidebarOptions_lang(){
+    return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Language']");
+  
+  }
+
+  public static get secondary_sidebarOptions_country(){
+    return $("//div[@class='ag-virtual-list-item ag-column-select-virtual-list-item']/div/div/following-sibling::span/following-sibling::span[text()='Country']");
+  
+  }
+
+  
+  
   public static get inputNameField(){
    return $("//div[@class='ag-input-wrapper']/input");
 

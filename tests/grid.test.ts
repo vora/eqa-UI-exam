@@ -59,7 +59,7 @@ describe("Load AG Grid", () => {
 
  });
 
- it("Validate that the Primary Column Headers are available in the Columns Sidebar options", () => {
+ it.skip("Validate that the Primary Column Headers are available in the Columns Sidebar options-Test2", () => {
   GridPage.mainGrid.waitForDisplayed();
 /*Used localeCompare to verify column headeres are in sidebar options
   /*Secondary Column - Name */
@@ -74,12 +74,15 @@ describe("Load AG Grid", () => {
   var result=primaryColHeaderString_participant.localeCompare(sideHeaderString_participant);
 
   if(result<0){
+   
     console.log("strings are not equal");
   }
   else if(result>0){
+   
     console.log("strings are not equal");
   }
   else{
+
     console.log("Primary Column Headers are available in the Columns Sidebar options");
   }
     
@@ -142,18 +145,39 @@ else{
   }
  });
 
- it.skip("Grab Secondary column headers should have same text as sidebar options", () => {
+ it.skip("Grab Secondary column headers should have same text as sidebar options-Test3", () => {
   GridPage.mainGrid.waitForDisplayed();
 
+  /*grab sec header name and should have sametext  to sidebar options-Name*/
   var secondaryColHeaderString=GridPage.secondaryCH_Name.getText();
   console.log(secondaryColHeaderString);
 
-  GridPage.secondary_sidebarOptions.scrollIntoView();
-  var sec_sideOptionsString=GridPage.secondary_sidebarOptions.getText();
-  console.log(sec_sideOptionsString);
+  GridPage.secondary_sidebarOptions_name.scrollIntoView();
+  var sec_sideOptionsStringname=GridPage.secondary_sidebarOptions_name.getText();
+  console.log(sec_sideOptionsStringname);
   console.log("Strings comparision");
-  console.log(secondaryColHeaderString.localeCompare(sec_sideOptionsString));
+  console.log(secondaryColHeaderString.localeCompare(sec_sideOptionsStringname));
+/*grab sec header name and should have sametext  to sidebar options-language*/
 
+var secondaryColHeaderString_lang=GridPage.secondaryCH_Lang.getText();
+  console.log(secondaryColHeaderString_lang);
+
+  GridPage.secondary_sidebarOptions_lang.scrollIntoView();
+  var sec_sideOptionsStringlanguage=GridPage.secondary_sidebarOptions_lang.getText();
+  console.log(sec_sideOptionsStringlanguage);
+  console.log("Strings comparision");
+  console.log(secondaryColHeaderString_lang.localeCompare(sec_sideOptionsStringlanguage));
+
+  /*grab sec header name and should have sametext  to sidebar options-country*/
+
+var secondaryColHeaderString_country=GridPage.secondaryCH_Country.getText();
+console.log(secondaryColHeaderString_country);
+
+GridPage.secondary_sidebarOptions_country.scrollIntoView();
+var sec_sideOptionsStringCountry=GridPage.secondary_sidebarOptions_country.getText();
+console.log(sec_sideOptionsStringCountry);
+console.log("Strings comparision");
+console.log(secondaryColHeaderString_country.localeCompare(sec_sideOptionsStringCountry));
 
  });
 
@@ -213,8 +237,8 @@ else{
 
  });
 
- /*click on filter of October*/ 
- it.skip("Click on oct filter and enter value less than 5000", () => {
+ 
+ it("Click on oct filter and enter value less than 5000-Test5", () => {
   GridPage.mainGrid.waitForDisplayed();
   //GridPage.clickOnOctFilter.scrollIntoView();
 
