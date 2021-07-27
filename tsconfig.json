@@ -8,11 +8,12 @@
       "removeComments": true,
       "noImplicitAny": false,
       "outDir": "src",
-      "types": ["node", "@wdio/sync", "mocha", "chai-string"],
+      "types": ["node", "webdriverio", "webdriverio/async", "@wdio/mocha-framework", "@wdio/sync", "mocha", "chai-string"],
       "sourceMap": true,
       "resolveJsonModule": true,
       "esModuleInterop": true,
+      "skipLibCheck": true
     },
     "exclude": ["node_modules"],
-    "compileOnSave": false
+    "compileOnSave": false,
   }
