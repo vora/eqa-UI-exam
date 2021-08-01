@@ -36,7 +36,7 @@
     "@wdio/spec-reporter": "^6.11.0",
     "@wdio/sync": "^6.11.0",
     "chai": "^4.2.0",
-    "chromedriver": "^87.0.5",
+    "chromedriver": "^92.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.18.0",
     "eslint-config-google": "^0.14.0",
